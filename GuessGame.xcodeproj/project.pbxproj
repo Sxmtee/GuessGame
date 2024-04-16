@@ -7,18 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04674D4C2BCE700E00F2BF25 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04674D4B2BCE700E00F2BF25 /* Buttons.swift */; };
+		04674D4E2BCEC6B200F2BF25 /* TheGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04674D4D2BCEC6B200F2BF25 /* TheGame.swift */; };
 		0488BDBD2BBB75EB00E38187 /* GuessGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488BDBC2BBB75EB00E38187 /* GuessGameApp.swift */; };
 		0488BDBF2BBB75EB00E38187 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488BDBE2BBB75EB00E38187 /* ContentView.swift */; };
 		0488BDC12BBB75F200E38187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0488BDC02BBB75F200E38187 /* Assets.xcassets */; };
 		0488BDC42BBB75F200E38187 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0488BDC32BBB75F200E38187 /* Preview Assets.xcassets */; };
+		04AC00D32BCD5A0F0070A695 /* colorGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AC00D22BCD5A0F0070A695 /* colorGradient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04674D4B2BCE700E00F2BF25 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		04674D4D2BCEC6B200F2BF25 /* TheGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheGame.swift; sourceTree = "<group>"; };
 		0488BDB92BBB75EB00E38187 /* GuessGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuessGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0488BDBC2BBB75EB00E38187 /* GuessGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessGameApp.swift; sourceTree = "<group>"; };
 		0488BDBE2BBB75EB00E38187 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0488BDC02BBB75F200E38187 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0488BDC32BBB75F200E38187 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		04AC00D22BCD5A0F0070A695 /* colorGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorGradient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +59,11 @@
 			children = (
 				0488BDBC2BBB75EB00E38187 /* GuessGameApp.swift */,
 				0488BDBE2BBB75EB00E38187 /* ContentView.swift */,
+				04AC00D22BCD5A0F0070A695 /* colorGradient.swift */,
+				04674D4B2BCE700E00F2BF25 /* Buttons.swift */,
 				0488BDC02BBB75F200E38187 /* Assets.xcassets */,
 				0488BDC22BBB75F200E38187 /* Preview Content */,
+				04674D4D2BCEC6B200F2BF25 /* TheGame.swift */,
 			);
 			path = GuessGame;
 			sourceTree = "<group>";
@@ -138,7 +147,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0488BDBF2BBB75EB00E38187 /* ContentView.swift in Sources */,
+				04AC00D32BCD5A0F0070A695 /* colorGradient.swift in Sources */,
 				0488BDBD2BBB75EB00E38187 /* GuessGameApp.swift in Sources */,
+				04674D4E2BCEC6B200F2BF25 /* TheGame.swift in Sources */,
+				04674D4C2BCE700E00F2BF25 /* Buttons.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

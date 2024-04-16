@@ -27,15 +27,30 @@ struct TheGame: View {
     
     @State private var showingScore = false
     @State private var scoreTitle = ""
+    @State private var score = 0
+    @State private var questionsAsked = 0
     
     func flagTapped(_ number: Int) {
         if number == correctAnswer {
             scoreTitle = "Correct"
+            score += 1
         } else {
             scoreTitle = "Wrong"
+            score -= 1
+            let correctCountry = countries[correctAnswer]
+            scoreTitle += "\nThat's the flag of \(correctCountry)"
         }
         
         showingScore = true
+        
+        questionsAsked += 1
+        
+        if questionsAsked == 8 {
+            scoreTitle = "Game Over"
+            scoreTitle += "\nYour final score is \(score)"
+            score = 0
+            questionsAsked = 0
+        }
     }
     
     func askQuestion() {
@@ -66,35 +81,56 @@ struct TheGame: View {
 //                endPoint: .bottom
 //            )
                 .ignoresSafeArea()
-            
-            VStack(spacing: 30) {
-                VStack {
-                    Text("Tap the flag of")
-                        .foregroundStyle(.white)
-                        .font(.subheadline.weight(.heavy))
-                    
-                    
-                    Text(countries[correctAnswer])
-                        .foregroundStyle(.white)
-                        .font(.largeTitle.weight(.semibold))
-                }
+            VStack{
+                Spacer()
                 
-                ForEach(0..<3) { number in
-                    Button {
-                        flagTapped(number)
-                    } label: {
-                        Image(countries[number])
-                            .clipShape(.capsule)
-                            .shadow(radius: 5)
+                Text("Guess The Flag")
+                    .font(.largeTitle.bold())
+                    .foregroundStyle(.white)
+                
+                
+                VStack(spacing: 15) {
+                    VStack {
+                        Text("Tap the flag of")
+                            .foregroundStyle(.secondary)
+                            .font(.subheadline.weight(.heavy))
+                        
+                        
+                        Text(countries[correctAnswer])
+                            .foregroundStyle(.black)
+                            .font(.largeTitle.weight(.semibold))
+                    }
+                    
+                    ForEach(0..<3) { number in
+                        Button {
+                            flagTapped(number)
+                        } label: {
+                            Image(countries[number])
+                                .clipShape(.capsule)
+                                .shadow(radius: 5)
+                        }
                     }
                 }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 20)
+                .background(.regularMaterial)
+                .clipShape(.rect(cornerRadius: 20))
+                
+                Spacer()
+                Spacer()
+                
+                Text("Score: \(score)")
+                    .font(.largeTitle.bold())
+                    .foregroundStyle(.white)
+                
+                Spacer()
             }
-            .alert(scoreTitle, isPresented: $showingScore) {
-                Button("Continue", action: askQuestion)
-            } message: {
-                Text("Your score is ???")
-            }
-            
+            .padding()
+        }
+        .alert(scoreTitle, isPresented: $showingScore) {
+            Button("Continue", action: askQuestion)
+        } message: {
+            Text("Your score is \(score)")
         }
         
     }

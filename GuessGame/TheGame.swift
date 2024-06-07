@@ -43,7 +43,12 @@ struct TheGame: View {
     @State private var score = 0
     @State private var questionsAsked = 0
     
+    @State private var selectedFlag: Int? = nil
+    @State private var animationAmount = 0.0
+    
     func flagTapped(_ number: Int) {
+        selectedFlag = number
+        
         if number == correctAnswer {
             scoreTitle = "Correct"
             score += 1
@@ -64,11 +69,18 @@ struct TheGame: View {
             score = 0
             questionsAsked = 0
         }
+        
+        withAnimation {
+            animationAmount += 360
+        }
     }
     
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+        
+        selectedFlag = nil
+        animationAmount = 0.0
     }
     
     var body: some View {
@@ -88,11 +100,6 @@ struct TheGame: View {
                 startRadius: 200,
                 endRadius: 700
             )
-//            LinearGradient(
-//                colors: [.blue, .black],
-//                startPoint: .top,
-//                endPoint: .bottom
-//            )
                 .ignoresSafeArea()
             VStack{
                 Spacer()
@@ -119,10 +126,14 @@ struct TheGame: View {
                             flagTapped(number)
                         } label: {
                             FlagImage(imageName: countries[number])
-//                            Image(countries[number])
-//                                .clipShape(.capsule)
-//                                .shadow(radius: 5)
                         }
+                        .rotation3DEffect(
+                            .degrees(number == selectedFlag ? animationAmount : 0),
+                            axis: (x: 0, y: 1, z: 0))
+                            .opacity(
+                                selectedFlag == nil || selectedFlag == number ? 1 : 0.25
+                            )
+                            .animation(.default, value: animationAmount)
                     }
                 }
                 .frame(maxWidth: .infinity)
